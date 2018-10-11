@@ -7,7 +7,7 @@ import { Project } from '../models/project.model';
 
 const routes = {
     projects: '/projects.json'
-}
+};
 
 @Injectable()
 export class ProjectService {

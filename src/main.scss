@@ -3,3 +3,22 @@
 $fa-font-path: "../node_modules/@fortawesome/fontawesome-free-webfonts/webfonts";
 @import "../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 @import "../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+    height: 100%;
+    color: #222;
+    line-height: 1.4em;
+}
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: auto;
+    padding: 1rem 1rem;
+}
+
+/* Prevent scroll on narrow devices */
+html, body {
+    font-size: 1em;
+    height: 100%;
+    overflow-x: hidden;
+}

@@ -1,0 +1,55 @@
+<h1>Contact Info</h1>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="profileForm">
+                <ng-template matStepLabel>Fill out your name</ng-template>
+                <mat-form-field>
+                    <input matInput placeholder="First name" formControlName="firstName" required>
+                </mat-form-field>
+                <mat-form-field>
+                        <input matInput placeholder="Last name" formControlName="lastName" required>
+                    </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="addressForm">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+                <mat-form-field>
+                    <input matInput placeholder="Address 1" formControlName="street" required>
+                </mat-form-field>
+                <mat-form-field>
+                        <input matInput placeholder="Address 2" formControlName="street2">
+                </mat-form-field>
+                <table  cellspacing="0"><tr>
+                    <td><mat-form-field>
+                    <input matInput placeholder="City" formControlName="city" required>
+                    </mat-form-field></td>
+                    <td><mat-form-field>
+                    <input matInput placeholder="State" formControlName="state" required>
+                    </mat-form-field></td>
+                    <td><mat-form-field>
+                    <input matInput #postalCode maxlength="5" placeholder="Postal Code" formControlName="zip" required>
+                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                    </mat-form-field></td>
+                </tr></table>
+                    
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Confirm your information</ng-template>
+            <div *ngIf="!profileForm.valid" class="help-block error small">Form is incomplete</div>
+            <div>
+                <button type="button" mat-button (click)="onSubmit()">Submit</button>
+                <button type="button" mat-button (click)="reset()">Clear data</button>
+                <button type="button" mat-button (click)="stepper.reset()">Start Over</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
