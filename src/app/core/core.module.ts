@@ -2,7 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 
-import { reducer } from './reducers/tutorial.reducer';
+import { reducer } from './reducers/laundry.reducer';
 
 import { environment } from '@env/environment';
 import { AuthGuard } from './guards/auth.guard';
@@ -18,7 +18,7 @@ import { services } from './services';
     imports: [
         HttpClientModule,
         StoreModule.forRoot({
-            tutorial: reducer
+            laundry: reducer
         })
     ],
     providers: [

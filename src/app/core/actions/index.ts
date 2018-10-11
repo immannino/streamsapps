@@ -1,1 +1,1 @@
-export * from './tutorial.actions';
+export * from './laundry.actions';

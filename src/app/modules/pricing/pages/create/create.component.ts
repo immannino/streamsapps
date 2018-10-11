@@ -5,9 +5,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { Store } from '@ngrx/store';
-import { Tutorial } from '@app/core/models/tutorial.model';
+import { Laundry } from '@app/core/models/laundry.model';
 import { AppState } from '@app/app.state';
-import * as TutorialActions from './../../../../core/actions/tutorial.actions';
+import * as LaundryActions from '@app/core/actions/laundry.actions';
 
 @Component({
     selector: 'app-create',
@@ -15,7 +15,7 @@ import * as TutorialActions from './../../../../core/actions/tutorial.actions';
     styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-    tutorials: Observable<Tutorial[]>;
+    laundry: Observable<Laundry[]>;
     isLinear = false;
     options: FormGroup;
 
@@ -24,11 +24,11 @@ export class CreateComponent implements OnInit {
             hideRequired: false,
             floatLabel: 'auto',
         });
-        this.tutorials = store.select('tutorial');
+        this.laundry = store.select('laundry');
     }
 
-    private addTutorial() {
-        this.store.dispatch(new TutorialActions.AddTutorial(this.options.value));
+    private addLaundry() {
+        this.store.dispatch(new LaundryActions.AddLaundry(this.options.value));
     }
 
     ngOnInit(): void {
@@ -47,7 +47,7 @@ export class CreateComponent implements OnInit {
         if (this.options.valid) {
             console.log('form submitted');
             console.log(this.options.value);
-            this.addTutorial();
+            this.addLaundry();
         } else {
             this.validateAllFormFields(this.options); // {7}
         }

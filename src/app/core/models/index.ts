@@ -1,3 +1,3 @@
 export * from './project.model';
-export * from './tutorial.model';
+export * from './laundry.model';
 export * from './IAppConfig';

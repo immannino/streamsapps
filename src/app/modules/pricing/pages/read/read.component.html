@@ -1,15 +1,15 @@
-<div class="right" *ngIf="tutorials">
+<div class="right" *ngIf="laundrys">
 
         <h3>Laundry Order Details</h3>
         <ul>
-            <li (click)="delTutorial(i)" *ngFor="let tutorial of tutorials | async; let i = index">
-                <p>loads: {{ tutorial.loads }}</p>
-                <p>detergent: {{ tutorial.detergent }}</p>
-                <p>washTemperature: {{ tutorial.washTemperature }}</p>
-                <p>dryTemperature: {{ tutorial.dryTemperature }}</p>
-                <p>starch: {{ tutorial.starch }}</p>
-                <p>package: {{ tutorial.package }}</p>
-                <p>instructions: {{ tutorial.instructions }}</p>
+            <li (click)="delLaundry(i)" *ngFor="let laundry of laundrys | async; let i = index">
+                <p>loads: {{ laundry.loads }}</p>
+                <p>detergent: {{ laundry.detergent }}</p>
+                <p>washTemperature: {{ laundry.washTemperature }}</p>
+                <p>dryTemperature: {{ laundry.dryTemperature }}</p>
+                <p>starch: {{ laundry.starch }}</p>
+                <p>package: {{ laundry.package }}</p>
+                <p>instructions: {{ laundry.instructions }}</p>
             </li>
         </ul>
     

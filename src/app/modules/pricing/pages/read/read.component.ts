@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService, Project } from '@app/core';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
 
-import * as TutorialActions from './../../../../core/actions/tutorial.actions';
-import { Tutorial } from './../../../../core/models/tutorial.model';
-import { AppState } from './../../../../app.state';
+import { Store } from '@ngrx/store';
+import { Laundry } from '@app/core/models/laundry.model';
+import { AppState } from '@app/app.state';
+import * as LaundryActions from '@app/core/actions/laundry.actions';
 
 
 @Component({
@@ -14,24 +14,19 @@ import { AppState } from './../../../../app.state';
     styleUrls: ['./read.component.scss']
 })
 export class ReadComponent implements OnInit {
-    tutorials: Observable<Tutorial[]>;
-    projects$: Observable<Project[]>;
+    laundry: Observable<Laundry[]>;
 
-    constructor(private projectService: ProjectService, private store: Store<AppState>) {
-        this.tutorials = store.select('tutorial');
+    constructor(private store: Store<AppState>) {
+        this.laundry = store.select('laundry');
     }
 
-    delTutorial(index) {
-        this.store.dispatch(new TutorialActions.RemoveTutorial(index));
+    delLaundry(index) {
+        this.store.dispatch(new LaundryActions.RemoveLaundry(index));
     }
 
     ngOnInit(): void {
-        this.loadProjects();
     }
 
-    loadProjects() {
-        this.projects$ = this.projectService.getAll();
-    }
     onSubmit() {
     }
 }

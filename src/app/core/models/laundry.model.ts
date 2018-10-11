@@ -1,4 +1,4 @@
-export interface Tutorial {
+export interface Laundry {
     loads: number;
     detergent: string;
     washTemperature: string;

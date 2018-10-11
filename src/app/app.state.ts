@@ -1,5 +1,5 @@
-import { Tutorial } from './core/models/tutorial.model';
+import { Laundry } from '@app/core/models/laundry.model';
 
 export interface AppState {
-  readonly tutorial: Tutorial[];
+  readonly laundry: Laundry[];
 }
