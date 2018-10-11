@@ -1,9 +1,15 @@
 <div class="right" *ngIf="tutorials">
 
-        <h3>Tutorials</h3>
+        <h3>Laundry Order Details</h3>
         <ul>
             <li (click)="delTutorial(i)" *ngFor="let tutorial of tutorials | async; let i = index">
-                <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a>
+                <p>loads: {{ tutorial.loads }}</p>
+                <p>detergent: {{ tutorial.detergent }}</p>
+                <p>washTemperature: {{ tutorial.washTemperature }}</p>
+                <p>dryTemperature: {{ tutorial.dryTemperature }}</p>
+                <p>starch: {{ tutorial.starch }}</p>
+                <p>package: {{ tutorial.package }}</p>
+                <p>instructions: {{ tutorial.instructions }}</p>
             </li>
         </ul>
     
