@@ -1,7 +1,7 @@
 <h1>Contact Info</h1>
 
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
+        <mat-step [stepControl]="profileForm">
             <form [formGroup]="profileForm">
                 <ng-template matStepLabel>Fill out your name</ng-template>
                 <mat-form-field>
@@ -15,7 +15,7 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
+        <mat-step [stepControl]="addressForm">
             <form [formGroup]="addressForm">
                 <ng-template matStepLabel>Fill out your address</ng-template>
                 <mat-form-field>

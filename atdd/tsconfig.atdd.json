@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../out-tsc/atdd",
+        "baseUrl": "./",
+        "module": "commonjs",
+        "target": "es5",
+        "types": [
+        "cucumber",
+        "jasmine",
+        "jasminewd2",
+        "node"
+        ]
+    }
+}

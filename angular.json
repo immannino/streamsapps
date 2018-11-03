@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-folder-structure": {
+    "streamsapps": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-folder-structure",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/main.scss"
+              "src/main.scss",
+              "src/styles/theme.scss"
             ],
             "scripts": []
           },
@@ -50,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-folder-structure:build"
+            "browserTarget": "streamsapps:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-folder-structure:build:production"
+              "browserTarget": "streamsapps:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-folder-structure:build"
+            "browserTarget": "streamsapps:build"
           }
         },
         "test": {
@@ -95,26 +96,21 @@
         }
       }
     },
-    "angular-folder-structure-e2e": {
+    "e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-folder-structure:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-folder-structure:serve:production"
-            }
+            "protractorConfig": "./atdd/conf/protractor.conf.js",
+            "devServerTarget": "streamsapps:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
+            "tsConfig": "atdd/tsconfig.atdd.json",
             "exclude": [
               "**/node_modules/**"
             ]
@@ -123,5 +119,5 @@
       }
     }
   },
-  "defaultProject": "angular-folder-structure"
+  "defaultProject": "streamsapps"
 }
