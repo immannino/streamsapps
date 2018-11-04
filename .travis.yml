@@ -10,6 +10,9 @@ branches:
   only:
     - master
     - develop
+cache:
+  directories:
+    - node_modules
 addons:
   apt:
     sources:
@@ -27,6 +30,13 @@ script:
   - ng test --watch=false --code-coverage --browsers=ChromeHeadless
   - ng e2e
   - ng build --build-optimizer --aot --prod
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: master
 notifications:
   webhooks:
     on_success: change
